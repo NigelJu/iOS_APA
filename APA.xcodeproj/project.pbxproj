@@ -17,6 +17,8 @@
 		A6D3C7C620931B720083C3C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D3C7C520931B720083C3C6 /* Assets.xcassets */; };
 		A6D696EC209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696EB209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift */; };
 		A6D696EF209F4E7C000CFCF1 /* PetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696EE209F4E7C000CFCF1 /* PetInfo.swift */; };
+		A6D696F1209FAFEE000CFCF1 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F0209FAFEE000CFCF1 /* PetDetailViewController.swift */; };
+		A6D696F3209FB00B000CFCF1 /* PetDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F2209FB00B000CFCF1 /* PetDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		A6D3C7CA20931B720083C3C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6D696EB209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetListViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		A6D696EE209F4E7C000CFCF1 /* PetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfo.swift; sourceTree = "<group>"; };
+		A6D696F0209FAFEE000CFCF1 /* PetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
+		A6D696F2209FB00B000CFCF1 /* PetDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailTableViewController.swift; sourceTree = "<group>"; };
 		F46134F757C1D21964D042F5 /* Pods-APA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APA/Pods-APA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +73,8 @@
 			children = (
 				A6A1E06A209F4BA100B70635 /* AllPetListViewController.swift */,
 				A6D696EB209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift */,
+				A6D696F0209FAFEE000CFCF1 /* PetDetailViewController.swift */,
+				A6D696F2209FB00B000CFCF1 /* PetDetailTableViewController.swift */,
 			);
 			path = AllPet;
 			sourceTree = "<group>";
@@ -287,10 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6D696F3209FB00B000CFCF1 /* PetDetailTableViewController.swift in Sources */,
 				A6D3C7C120931B6E0083C3C6 /* ViewController.swift in Sources */,
 				A6D3C7BF20931B6E0083C3C6 /* AppDelegate.swift in Sources */,
 				A6A1E06B209F4BA100B70635 /* AllPetListViewController.swift in Sources */,
 				A6D696EF209F4E7C000CFCF1 /* PetInfo.swift in Sources */,
+				A6D696F1209FAFEE000CFCF1 /* PetDetailViewController.swift in Sources */,
 				A6CBEFB620931FB0008482F9 /* GoogleSheetManager.swift in Sources */,
 				A6D696EC209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift in Sources */,
 			);
