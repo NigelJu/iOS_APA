@@ -293,7 +293,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.82745098039999998" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="addressLabel" destination="5x2-SC-77d" id="wqX-bx-yn5"/>
+                                            <outlet property="locationLabel" destination="5x2-SC-77d" id="PZ3-Rr-jnF"/>
                                             <outlet property="nameLabel" destination="5NL-tr-nxn" id="DmS-fD-o5O"/>
                                             <outlet property="petImageView" destination="dGL-34-3Ha" id="9kY-hR-3CI"/>
                                         </connections>
@@ -314,6 +314,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lee-un-2FW"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="t30-vd-O3T" id="aXa-Hg-ITP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sbc-5R-iLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

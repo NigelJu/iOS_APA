@@ -17,7 +17,7 @@ protocol AllPetListViewControllerTableViewCellDelegate {
 class AllPetListViewControllerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var petImageView: UIImageView!
     
     var delegate: AllPetListViewControllerTableViewCellDelegate?

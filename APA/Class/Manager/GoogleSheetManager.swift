@@ -9,52 +9,54 @@
 import UIKit
 import GoogleAPIClientForREST
 
-// manager google sheet
-// provide fetch google sheet info
+/*
+ 提供googleSheet的撈取資料功能
+ 
+ 1. 使用fetch去驅動撈資料的動作
+ 2. 使用delegate操作所撈下的寵物資料
+ 
+*/
+
+protocol GoogleSheetManagerDelegate {
+    func googleSheetManagerFetchDidFinish(petInfos: [PetInfo], error: NSError?)
+}
+
 class GoogleSheetManager: NSObject {
 
-    
-    var didFinish: ((_ petInfo: PetInfo) -> Void)?
-    
+    var delegate: GoogleSheetManagerDelegate?
     
     
-    private let SPREAD_SHEET_ID = "1PF0sUjwA2JOlsIu-fvnK2lAopGTN9a6weiNuLtAMhIU"
-    private let API_KEY = "AIzaSyDbWthvXPcJ8VVjVqu25lcPVeoVTYckvfg"
-    private let SHEET_NAME = "SheetAPA!"
+    private let SPREAD_SHEET_ID = "  "
+    private let API_KEY = "  "
+    private let SHEET_NAME = "  "
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
     private let service = GTLRSheetsService()
-    
-    
-    /*
-    private static var sheetManager: GoogleSheetManager?
-    
-    static func sharedInstance() -> GoogleSheetManager {
-        if sheetManager == nil {
-            sheetManager = GoogleSheetManager()
-        }
-        return sheetManager!
-    }
-    */
+
+    private let MAX_PET_COUNT_PER_PAGE = 20 // 一次撈的最大筆數
+    private var fetchStartIndex = 2 // 起始從第2筆開始撈, googleSheet從1開始計算, 又第1筆是title
+    private var fetchCount = 0  // 撈取的次數
     
     override init() {
-        print("init")
         service.apiKey = API_KEY
     }
     
-    func getAnimalInfos(withCount count: Int) {
-        let range = SHEET_NAME + "A2:P" + "20"
+    func startFetch() {
+        // 起始位置 = 沒撈過資料則為預設值, 如果撈過資料就(撈的次數 * 最大筆數 + 1)
+        let startRowIndex = fetchCount == 0 ?
+            fetchStartIndex : fetchCount * MAX_PET_COUNT_PER_PAGE + 1
         
+        // 結束位置 = 起始 + 撈取筆數
+        let endRowIndex = startRowIndex + MAX_PET_COUNT_PER_PAGE
         
-        print("go")
-        
-        
-        
+        let range = SHEET_NAME + "A" + String(startRowIndex) + ":P" + String(endRowIndex)
         
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
             .query(withSpreadsheetId: SPREAD_SHEET_ID, range:range)
         service.executeQuery(query,
                              delegate: self,
                              didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
+        
+        fetchCount += 1
 
     }
   
@@ -66,33 +68,33 @@ class GoogleSheetManager: NSObject {
                                        finishedWithObject result : GTLRSheets_ValueRange,
                                        error : NSError?) {
         
-        let pet = PetInfo()
-        didFinish?(pet)
+       
+        var pets = [PetInfo]()
         
-        var majorsString = ""
-        let rows = result.values!
-        
-        
-        
-        
-        majorsString += "Name, Major:\n"
-        for row in rows {
-            let name = row[0]
-            let major = row[4]
+        for row in result.values ?? [] {
+            let pet = PetInfo()
+            pet.keepers = (row[PetInfoIndex.keepers.rawValue] as? String)?.components(separatedBy: ",")
+            pet.images = (row[PetInfoIndex.images.rawValue] as? String)?.components(separatedBy: ",")
+            pet.pet_id = row[PetInfoIndex.pet_id.rawValue] as? String
+            pet.src = row[PetInfoIndex.src.rawValue] as? String
+            pet.state = row[PetInfoIndex.state.rawValue] as? String
+            pet.body_type = row[PetInfoIndex.body_type.rawValue] as? String
+            pet.location = row[PetInfoIndex.location.rawValue] as? String
+            pet.color = row[PetInfoIndex.color.rawValue] as? String
+            pet.race = row[PetInfoIndex.race.rawValue] as? String
+            pet.feature = row[PetInfoIndex.feature.rawValue] as? String
+            pet.name = row[PetInfoIndex.name.rawValue] as? String
+            pet.view = row[PetInfoIndex.view.rawValue] as? String
+            pet.gender = row[PetInfoIndex.gender.rawValue] as? String
+            pet.personality = row[PetInfoIndex.personality.rawValue] as? String
+            pet.birthday = row[PetInfoIndex.birthday.rawValue] as? String
             
-            majorsString += "\(name), \(major)\n"
-            print(majorsString)
+            pets.append(pet)
         }
-        
-        
-        
+  
+        delegate?.googleSheetManagerFetchDidFinish(petInfos: pets, error: error)
+ 
     }
     
-    
-    
-    
-    
-    
-    
-    
+  
 }

@@ -33,15 +33,18 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<false/>
-		<key>http:/www.apatw.org</key>
+		<key>NSExceptionDomains</key>
 		<dict>
-			<key>NSExceptionAllowsInsecureHTTPLoads</key>
-			<true/>
-			<key>NSIncludesSubdomains</key>
-			<true/>
+			<key>http:/www.apatw.org</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
 		</dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
