@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GoogleSheetManager.swift
 //  APA
 //
 //  Created by Nigel on 2018/4/27.
@@ -9,59 +9,70 @@
 import UIKit
 import GoogleAPIClientForREST
 
-class ViewController: UIViewController {
+// manager google sheet
+// provide fetch google sheet info
+class GoogleSheetManager: NSObject {
 
+    
+    var didFinish: ((_ petInfo: PetInfo) -> Void)?
+    
+    
+    
     private let SPREAD_SHEET_ID = "1PF0sUjwA2JOlsIu-fvnK2lAopGTN9a6weiNuLtAMhIU"
+    private let API_KEY = "AIzaSyDbWthvXPcJ8VVjVqu25lcPVeoVTYckvfg"
+    private let SHEET_NAME = "SheetAPA!"
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
     private let service = GTLRSheetsService()
     
     
+    /*
+    private static var sheetManager: GoogleSheetManager?
     
+    static func sharedInstance() -> GoogleSheetManager {
+        if sheetManager == nil {
+            sheetManager = GoogleSheetManager()
+        }
+        return sheetManager!
+    }
+    */
     
-   
-    
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-     
-//        GoogleSheetManager.sharedInstance().getAnimalInfos()
-        
-        
-        
-//        listMajors()
+    override init() {
+        print("init")
+        service.apiKey = API_KEY
     }
     
-    // Display (in the UITextView) the names and majors of students in a sample
-    // spreadsheet:
-    // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-    func listMajors() {
-       
-        let spreadsheetId = SPREAD_SHEET_ID
-        let range = "SheetAPA!A2:P"
+    func getAnimalInfos(withCount count: Int) {
+        let range = SHEET_NAME + "A2:P" + "20"
         
-        service.apiKey = "AIzaSyDbWthvXPcJ8VVjVqu25lcPVeoVTYckvfg"
+        
+        print("go")
+        
+        
         
         
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
-            .query(withSpreadsheetId: spreadsheetId, range:range)
+            .query(withSpreadsheetId: SPREAD_SHEET_ID, range:range)
         service.executeQuery(query,
                              delegate: self,
-                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:))
-        )
+                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
+
     }
+  
+
+    
     
     // Process the response and display output
     @objc func displayResultWithTicket(ticket: GTLRServiceTicket,
                                        finishedWithObject result : GTLRSheets_ValueRange,
                                        error : NSError?) {
         
+        let pet = PetInfo()
+        didFinish?(pet)
         
         var majorsString = ""
         let rows = result.values!
         
-      
+        
         
         
         majorsString += "Name, Major:\n"
@@ -73,12 +84,15 @@ class ViewController: UIViewController {
             print(majorsString)
         }
         
-    
+        
         
     }
     
     
-
-
+    
+    
+    
+    
+    
+    
 }
-
