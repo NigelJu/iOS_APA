@@ -18,7 +18,7 @@ import GoogleAPIClientForREST
 */
 
 protocol GoogleSheetManagerDelegate {
-    func googleSheetManagerFetchDidFinish(petInfos: [PetInfo], error: NSError?)
+    func googleSheetManagerFetchDidFinish(response: [PetInfo], error: NSError?)
 }
 
 class GoogleSheetManager: NSObject {
@@ -29,31 +29,24 @@ class GoogleSheetManager: NSObject {
     
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
     private let service = GTLRSheetsService() 
-    private var fetchStartIndex = 20 // 起始從第2筆開始撈, googleSheet從1開始計算, 又第1筆是title
-    private var fetchCount = 0  // 撈取的次數
+    private var fetchStartIndex = 2 // 起始從第2筆開始撈, googleSheet從1開始計算, 又第1筆是title
     
     override init() {
         service.apiKey = API_KEY
     }
     
     func startFetch() {
-        // 起始位置 = 沒撈過資料則為預設值, 如果撈過資料就(撈的次數 * 最大筆數 + 1)
-        let startRowIndex = fetchCount == 0 ?
-            fetchStartIndex : fetchCount * MAX_PET_COUNT_PER_PAGE + 1
-        
-        // 結束位置 = 起始 + 撈取筆數
-        let endRowIndex = startRowIndex + MAX_PET_COUNT_PER_PAGE
-        
-        let range = SHEET_NAME + "A" + String(startRowIndex) + ":P" + String(endRowIndex)
+        // 結束位置 = 起始 + 撈取筆數 - 1, -1是因為從始起位置開始撈筆數, 會多拿1筆
+        let endRowIndex = fetchStartIndex + MAX_PET_COUNT_PER_PAGE - 1
+
+        let range = SHEET_NAME + "A" + String(fetchStartIndex) + ":P" + String(endRowIndex)
         
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
             .query(withSpreadsheetId: SPREAD_SHEET_ID, range:range)
         service.executeQuery(query,
                              delegate: self,
                              didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
-        
-        fetchCount += 1
-
+        fetchStartIndex = endRowIndex + 1
     }
   
 
@@ -89,7 +82,7 @@ class GoogleSheetManager: NSObject {
             pets.append(pet)
         }
   
-        delegate?.googleSheetManagerFetchDidFinish(petInfos: pets, error: error)
+        delegate?.googleSheetManagerFetchDidFinish(response: pets, error: error)
  
     }
     

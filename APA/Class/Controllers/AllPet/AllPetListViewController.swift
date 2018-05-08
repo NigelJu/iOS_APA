@@ -18,12 +18,20 @@ class AllPetListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         googleSheetManager.delegate = self
+        
+        self.googleSheetManager.startFetch()
+        
+        // 滾到底觸發拉資料
+        tableView.addInfiniteScroll { [weak self] (tableView) -> Void in
+            self?.googleSheetManager.startFetch()
+            tableView.finishInfiniteScroll()
+        }
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        googleSheetManager.startFetch()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,9 +78,9 @@ extension AllPetListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "petDetail", sender: petInfos[indexPath.row])
     }
-    
-    
 }
+
+
 
 // MARK:- AllPetListViewControllerTableViewCellDelegate
 extension AllPetListViewController: AllPetListViewControllerTableViewCellDelegate {
@@ -84,17 +92,23 @@ extension AllPetListViewController: AllPetListViewControllerTableViewCellDelegat
     func shareButtonDidTap(petInfo: PetInfo) {
         print("shareButtonDidTap")
         print("fetchTest")
-        googleSheetManager.startFetch()
+        
     }
 }
 
 // MARK:- GoogleSheetManagerDelegate
 extension AllPetListViewController: GoogleSheetManagerDelegate {
-    func googleSheetManagerFetchDidFinish(petInfos: [PetInfo], error: NSError?) {
+    func googleSheetManagerFetchDidFinish(response: [PetInfo], error: NSError?) {
         
-        print(petInfos.count)
-        self.petInfos = petInfos
-        tableView.reloadData()
+        let startPetIndex = self.petInfos.count
+        let (start, end) = (startPetIndex, response.count + startPetIndex)
+        let indexPaths = (start..<end).map { return IndexPath(row: $0, section: 0) }
         
+        self.petInfos += response
+        
+        tableView.beginUpdates()
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        tableView.endUpdates()
+
     }
 }
