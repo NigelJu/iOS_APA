@@ -9,8 +9,8 @@
 import UIKit
 
 protocol AllPetListViewControllerTableViewCellDelegate {
-    func favoriteButtonDidTap(petInfo: PetInfo)
-    func shareButtonDidTap(petInfo: PetInfo)
+    func favoriteButtonDidTap(button: UIButton, petInfo: PetInfo)
+    func shareButtonDidTap(button: UIButton, petInfo: PetInfo)
     
 }
 
@@ -23,12 +23,12 @@ class AllPetListViewControllerTableViewCell: UITableViewCell {
     var delegate: AllPetListViewControllerTableViewCellDelegate?
     
     
-    @IBAction func favoriteButtonDidTap(_ sender: Any) {
-        delegate?.favoriteButtonDidTap(petInfo: PetInfo())
+    @IBAction func favoriteButtonDidTap(_ sender: UIButton) {
+        delegate?.favoriteButtonDidTap(button: sender, petInfo: PetInfo())
     }
     
-    @IBAction func shareButtonDidTap(_ sender: Any) {
-        delegate?.shareButtonDidTap(petInfo: PetInfo())
+    @IBAction func shareButtonDidTap(_ sender: UIButton) {
+        delegate?.shareButtonDidTap(button: sender, petInfo: PetInfo())
     }
     
 }

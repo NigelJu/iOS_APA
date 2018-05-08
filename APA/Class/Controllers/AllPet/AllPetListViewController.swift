@@ -85,11 +85,12 @@ extension AllPetListViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK:- AllPetListViewControllerTableViewCellDelegate
 extension AllPetListViewController: AllPetListViewControllerTableViewCellDelegate {
     
-    func favoriteButtonDidTap(petInfo: PetInfo) {
+    func favoriteButtonDidTap(button: UIButton, petInfo: PetInfo) {
+        button.isSelected = !button.isSelected
         print("favoriteButtonDidTap")
     }
     
-    func shareButtonDidTap(petInfo: PetInfo) {
+    func shareButtonDidTap(button: UIButton, petInfo: PetInfo) {
         print("shareButtonDidTap")
         print("fetchTest")
         
