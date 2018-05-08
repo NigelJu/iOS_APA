@@ -26,6 +26,20 @@ enum PetInfoIndex: Int {
     case birthday      
 }
 
+enum PetGender: String {
+    case femail = "母"
+    case male = "公"
+    
+    func setGender() -> String {
+        switch self {
+        case .femail:
+            return "(♁)"
+        case .male:
+            return "(♂︎)"
+        }
+    }
+}
+
 class PetInfo {
     
     var keepers: [String]? // 不只一個人在養
@@ -40,8 +54,8 @@ class PetInfo {
     var feature: String?    // 特徵
     var name: String?    // 呼名
     var view: String?    // 外型
-    var gender: String?    // 性別
+    var gender: PetGender?    // 性別
     var personality: String?    // 個性
     var birthday: String?    // 出生年份
- 
+    
 }

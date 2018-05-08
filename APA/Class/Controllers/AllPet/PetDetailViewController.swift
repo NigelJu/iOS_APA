@@ -10,7 +10,29 @@ import UIKit
 
 class PetDetailViewController: UIViewController {
 
-
+    var petInfo = PetInfo()
+    var detailPetTableVC: PetDetailTableViewController?
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        for vc in self.childViewControllers where vc is PetDetailTableViewController {
+            detailPetTableVC = vc as? PetDetailTableViewController
+            detailPetTableVC?.petInfo = petInfo
+            self.title = (petInfo.name ?? "") + (petInfo.gender?.setGender() ?? "")
+        }
+    }
+    
+    
+    // MARK:- IBAction
+    @IBAction func adoptButtonDidTap(_ sender: Any) {
+        let apaUrl = APA_DETAIL_URL_PREFFIX + (petInfo.pet_id ?? "")
+        if let url = URL(string: apaUrl) {
+            UIApplication.shared.canOpenURL(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func reloadButtonDidTap(_ sender: Any) {
+        detailPetTableVC?.reloadCollectionView()
+    }
 }

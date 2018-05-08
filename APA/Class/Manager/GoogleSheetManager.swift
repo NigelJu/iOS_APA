@@ -26,14 +26,12 @@ class GoogleSheetManager: NSObject {
     var delegate: GoogleSheetManagerDelegate?
     
     
-    private let SPREAD_SHEET_ID = "  "
-    private let API_KEY = "  "
-    private let SHEET_NAME = "  "
+    
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
     private let service = GTLRSheetsService()
 
     private let MAX_PET_COUNT_PER_PAGE = 20 // 一次撈的最大筆數
-    private var fetchStartIndex = 2 // 起始從第2筆開始撈, googleSheet從1開始計算, 又第1筆是title
+    private var fetchStartIndex = 520 // 起始從第2筆開始撈, googleSheet從1開始計算, 又第1筆是title
     private var fetchCount = 0  // 撈取的次數
     
     override init() {
@@ -85,7 +83,8 @@ class GoogleSheetManager: NSObject {
             pet.feature = row[PetInfoIndex.feature.rawValue] as? String
             pet.name = row[PetInfoIndex.name.rawValue] as? String
             pet.view = row[PetInfoIndex.view.rawValue] as? String
-            pet.gender = row[PetInfoIndex.gender.rawValue] as? String
+            let gender = row[PetInfoIndex.gender.rawValue] as? String
+            pet.gender = PetGender(rawValue: gender ?? "")
             pet.personality = row[PetInfoIndex.personality.rawValue] as? String
             pet.birthday = row[PetInfoIndex.birthday.rawValue] as? String
             

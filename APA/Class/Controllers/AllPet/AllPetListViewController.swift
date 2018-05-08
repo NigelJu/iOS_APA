@@ -26,14 +26,20 @@ class AllPetListViewController: UIViewController {
         googleSheetManager.startFetch()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let petDetailVC = segue.destination as? PetDetailViewController,
+            let petInfo = sender as? PetInfo {
+            petDetailVC.petInfo = petInfo
+        }
+    }
+    
 }
 
 // MARK:- UITableViewDelegate, UITableViewDataSource
 extension AllPetListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return petInfos.count 
-//        return 5
+        return petInfos.count
     }
     
    
@@ -42,7 +48,11 @@ extension AllPetListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         let petInfo = petInfos[indexPath.row]
         
-        cell.nameLabel.text = petInfo.name
+        if let name = petInfo.name,
+            let gender = petInfo.gender {
+            cell.nameLabel.text = name + gender.setGender()
+            cell.nameLabel.textColor = gender == .femail ? .red : .blue
+        }
         cell.locationLabel.text = petInfo.location
         
         
@@ -55,6 +65,10 @@ extension AllPetListViewController: UITableViewDelegate, UITableViewDataSource {
       
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "petDetail", sender: petInfos[indexPath.row])
     }
     
     

@@ -7,89 +7,92 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PetDetailTableViewController: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var featureLabel: UILabel!
+    @IBOutlet weak var viewLabel: UILabel!
+    @IBOutlet weak var personalityLabel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var keeperStackView: UIStackView!
+    
+    @IBOutlet weak var petCollectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    var petInfo = PetInfo() {
+        didSet {
+            setupPetInfo()
+        }
+    }
+    
+    func reloadCollectionView(){
+        petCollectionView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    fileprivate func setupPetInfo() {
+        idLabel.text = petInfo.pet_id
+        sourceLabel.text = petInfo.src
+        bodyLabel.text = petInfo.body_type
+        locationLabel.text = petInfo.location
+        colorLabel.text = petInfo.color
+        featureLabel.text = petInfo.feature
+        viewLabel.text = petInfo.view
+        personalityLabel.text = petInfo.personality
+        birthdayLabel.text = petInfo.birthday
+        
+        pageControl.numberOfPages = petInfo.images?.count ?? 0
+        
+        guard let keepers = petInfo.keepers else { return }
+
+        // 飼養者的label用code產生, 而不在SB寫
+        for keeper in keepers {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
+            label.text = keeper
+            label.numberOfLines = 0
+            keeperStackView.addArrangedSubview(label)
+            keeperStackView.layoutIfNeeded()
+        }
     }
+    
+}
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+// MARK:- UIScrollViewDelegate
+extension PetDetailTableViewController {
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard let currentCell = petCollectionView.visibleCells.first,
+            let indexPath = petCollectionView.indexPath(for: currentCell)
+            else { return }
+        pageControl.currentPage = indexPath.row
     }
+}
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+
+// MARK:- UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+extension PetDetailTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return petInfo.images?.count ?? 0
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "petImages", for: indexPath) as! PetDetailTableViewCollectionViewCell
+        
+        let imgUrl = URL(string: petInfo.images?[indexPath.row] ?? "")
+        cell.imageView.kf.setImage(with: imgUrl,
+                                      placeholder: nil,
+                                      options: [.transition(ImageTransition.fade(1))],
+                                      progressBlock: nil,
+                                      completionHandler: nil)
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
