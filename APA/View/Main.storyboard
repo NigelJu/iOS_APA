@@ -190,7 +190,7 @@
             </objects>
             <point key="canvasLocation" x="-1345" y="164"/>
         </scene>
-        <!--待領養動物-->
+        <!--待認養動物-->
         <scene sceneID="HiI-Av-9vJ">
             <objects>
                 <viewController id="Ind-Zm-a4B" customClass="AllPetListViewController" customModule="APA" customModuleProvider="target" sceneMemberID="viewController">
@@ -296,6 +296,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.82745098039999998" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="faviriteButton" destination="tTf-5M-Mo1" id="kIk-1v-BbW"/>
                                             <outlet property="locationLabel" destination="5x2-SC-77d" id="PZ3-Rr-jnF"/>
                                             <outlet property="nameLabel" destination="5NL-tr-nxn" id="DmS-fD-o5O"/>
                                             <outlet property="petImageView" destination="dGL-34-3Ha" id="9kY-hR-3CI"/>
@@ -317,7 +318,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lee-un-2FW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="待領養動物" id="bE6-Um-BaM"/>
+                    <navigationItem key="navigationItem" title="待認養動物" id="bE6-Um-BaM"/>
                     <connections>
                         <outlet property="tableView" destination="t30-vd-O3T" id="aXa-Hg-ITP"/>
                         <segue destination="yky-Fc-d1O" kind="show" identifier="petDetail" id="G4o-uu-H8F"/>

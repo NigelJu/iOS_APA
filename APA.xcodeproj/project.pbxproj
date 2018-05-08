@@ -22,6 +22,9 @@
 		A6D696F520A0537A000CFCF1 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F420A0537A000CFCF1 /* Parameter.swift */; };
 		A6D696F720A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F620A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift */; };
 		A6FEB21020A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEB20F20A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m */; };
+		A6FEB21220A1C6F100EDE292 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEB21120A1C6F100EDE292 /* UserDefaultManager.swift */; };
+		A6FEB21720A1ED0C00EDE292 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEB21520A1ED0C00EDE292 /* Reachability.m */; };
+		A6FEB21A20A1F12D00EDE292 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEB21920A1F12D00EDE292 /* UIAlertController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,10 @@
 		A6FEB20D20A18EAE00EDE292 /* APA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APA-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6FEB20E20A18EAE00EDE292 /* UIScrollView+InfiniteScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+InfiniteScroll.h"; sourceTree = "<group>"; };
 		A6FEB20F20A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+InfiniteScroll.m"; sourceTree = "<group>"; };
+		A6FEB21120A1C6F100EDE292 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		A6FEB21520A1ED0C00EDE292 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		A6FEB21620A1ED0C00EDE292 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A6FEB21920A1F12D00EDE292 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		F46134F757C1D21964D042F5 /* Pods-APA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APA/Pods-APA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +107,7 @@
 		A6CBEFAF20931EAF008482F9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				A6FEB21820A1F12300EDE292 /* Extension */,
 				A6FEB20C20A18E6B00EDE292 /* ThirdParty */,
 				A6D696ED209F4E6A000CFCF1 /* Data */,
 				A6A1E068209F3AC200B70635 /* Controllers */,
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				A6CBEFB520931FB0008482F9 /* GoogleSheetManager.swift */,
+				A6FEB21120A1C6F100EDE292 /* UserDefaultManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -159,11 +168,37 @@
 		A6FEB20C20A18E6B00EDE292 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				A6FEB20E20A18EAE00EDE292 /* UIScrollView+InfiniteScroll.h */,
-				A6FEB20F20A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m */,
+				A6FEB21420A1EC5900EDE292 /* UIScrollView+InfiniteScroll */,
+				A6FEB21320A1EC5100EDE292 /* Reachability */,
 				A6FEB20D20A18EAE00EDE292 /* APA-Bridging-Header.h */,
 			);
 			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		A6FEB21320A1EC5100EDE292 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				A6FEB21620A1ED0C00EDE292 /* Reachability.h */,
+				A6FEB21520A1ED0C00EDE292 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		A6FEB21420A1EC5900EDE292 /* UIScrollView+InfiniteScroll */ = {
+			isa = PBXGroup;
+			children = (
+				A6FEB20E20A18EAE00EDE292 /* UIScrollView+InfiniteScroll.h */,
+				A6FEB20F20A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m */,
+			);
+			path = "UIScrollView+InfiniteScroll";
+			sourceTree = "<group>";
+		};
+		A6FEB21820A1F12300EDE292 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A6FEB21920A1F12D00EDE292 /* UIAlertController+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D0F5087C55DF9EF57DAEB143 /* Pods */ = {
@@ -315,12 +350,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6FEB21720A1ED0C00EDE292 /* Reachability.m in Sources */,
 				A6D696F3209FB00B000CFCF1 /* PetDetailTableViewController.swift in Sources */,
 				A6D3C7C120931B6E0083C3C6 /* ViewController.swift in Sources */,
 				A6D3C7BF20931B6E0083C3C6 /* AppDelegate.swift in Sources */,
 				A6D696F520A0537A000CFCF1 /* Parameter.swift in Sources */,
 				A6A1E06B209F4BA100B70635 /* AllPetListViewController.swift in Sources */,
 				A6D696F720A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift in Sources */,
+				A6FEB21220A1C6F100EDE292 /* UserDefaultManager.swift in Sources */,
+				A6FEB21A20A1F12D00EDE292 /* UIAlertController+Extension.swift in Sources */,
 				A6D696EF209F4E7C000CFCF1 /* PetInfo.swift in Sources */,
 				A6D696F1209FAFEE000CFCF1 /* PetDetailViewController.swift in Sources */,
 				A6CBEFB620931FB0008482F9 /* GoogleSheetManager.swift in Sources */,
@@ -453,18 +491,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L7NC2WJMV2;
 				INFOPLIST_FILE = APA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Nigel.APA;
+				PRODUCT_BUNDLE_IDENTIFIER = yhcl.APA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "APA/Class/ThirdParty/APA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -475,17 +514,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L7NC2WJMV2;
 				INFOPLIST_FILE = APA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Nigel.APA;
+				PRODUCT_BUNDLE_IDENTIFIER = yhcl.APA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "APA/Class/ThirdParty/APA-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

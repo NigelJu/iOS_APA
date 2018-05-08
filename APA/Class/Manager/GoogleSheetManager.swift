@@ -26,7 +26,7 @@ class GoogleSheetManager: NSObject {
     var delegate: GoogleSheetManagerDelegate?
     
     
-    
+    private var reachability = Reachability(hostName: "docs.google.com")
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
     private let service = GTLRSheetsService() 
     private var fetchStartIndex = 2 // 起始從第2筆開始撈, googleSheet從1開始計算, 又第1筆是title
@@ -48,10 +48,16 @@ class GoogleSheetManager: NSObject {
                              didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
         fetchStartIndex = endRowIndex + 1
     }
-  
+    
+    
+    func isNetWorkReachable() -> Bool {
+        if reachability?.currentReachabilityStatus().rawValue == 0 {
+            return false
+        }else {
+            return true
+        }
+    }
 
-    
-    
     // Process the response and display output
     @objc func displayResultWithTicket(ticket: GTLRServiceTicket,
                                        finishedWithObject result : GTLRSheets_ValueRange,

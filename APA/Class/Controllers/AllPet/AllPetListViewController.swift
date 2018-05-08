@@ -13,7 +13,7 @@ class AllPetListViewController: UIViewController {
 
     fileprivate let googleSheetManager = GoogleSheetManager()
     fileprivate var petInfos = [PetInfo]()
-    
+       
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,13 @@ class AllPetListViewController: UIViewController {
         
         // 滾到底觸發拉資料
         tableView.addInfiniteScroll { [weak self] (tableView) -> Void in
-            self?.googleSheetManager.startFetch()
-            tableView.finishInfiniteScroll()
+            if self?.googleSheetManager.isNetWorkReachable() == true {
+                self?.googleSheetManager.startFetch()
+                tableView.finishInfiniteScroll()
+            }else {
+                UIAlertController.alert(message: NET_WORK_FAIL)
+                    .show(currentVC: self)
+            }
         }
     }
 
@@ -56,12 +61,15 @@ extension AllPetListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         let petInfo = petInfos[indexPath.row]
         
+        cell.petInfo = petInfo
+        
         if let name = petInfo.name,
             let gender = petInfo.gender {
             cell.nameLabel.text = name + gender.setGender()
             cell.nameLabel.textColor = gender == .femail ? .red : .blue
         }
         cell.locationLabel.text = petInfo.location
+        cell.faviriteButton.isSelected = UserDefaultManager.shareInstance.isFavorite(withDogID: (petInfo.pet_id ?? ""))
         
         
         let imgUrl = URL(string: petInfo.images?.first ?? "")
@@ -86,7 +94,16 @@ extension AllPetListViewController: UITableViewDelegate, UITableViewDataSource {
 extension AllPetListViewController: AllPetListViewControllerTableViewCellDelegate {
     
     func favoriteButtonDidTap(button: UIButton, petInfo: PetInfo) {
-        button.isSelected = !button.isSelected
+        guard let petID = petInfo.pet_id else { return }
+        let isFavorite = UserDefaultManager.shareInstance.isFavorite(withDogID: petID)
+        if isFavorite {
+            UserDefaultManager.shareInstance.removeFavorite(fromID: petID)
+        }else {
+            UserDefaultManager.shareInstance.addFavorite(fromID: petID)
+        }
+        
+        button.isSelected = !isFavorite
+        
         print("favoriteButtonDidTap")
     }
     
