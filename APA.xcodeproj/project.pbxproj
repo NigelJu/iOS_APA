@@ -21,6 +21,7 @@
 		A6D696F3209FB00B000CFCF1 /* PetDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F2209FB00B000CFCF1 /* PetDetailTableViewController.swift */; };
 		A6D696F520A0537A000CFCF1 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F420A0537A000CFCF1 /* Parameter.swift */; };
 		A6D696F720A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F620A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift */; };
+		A6FEB21020A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEB20F20A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,9 @@
 		A6D696F2209FB00B000CFCF1 /* PetDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailTableViewController.swift; sourceTree = "<group>"; };
 		A6D696F420A0537A000CFCF1 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		A6D696F620A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailTableViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6FEB20D20A18EAE00EDE292 /* APA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APA-Bridging-Header.h"; sourceTree = "<group>"; };
+		A6FEB20E20A18EAE00EDE292 /* UIScrollView+InfiniteScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+InfiniteScroll.h"; sourceTree = "<group>"; };
+		A6FEB20F20A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+InfiniteScroll.m"; sourceTree = "<group>"; };
 		F46134F757C1D21964D042F5 /* Pods-APA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APA/Pods-APA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +100,7 @@
 		A6CBEFAF20931EAF008482F9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				A6FEB20C20A18E6B00EDE292 /* ThirdParty */,
 				A6D696ED209F4E6A000CFCF1 /* Data */,
 				A6A1E068209F3AC200B70635 /* Controllers */,
 				A6CBEFB420931F83008482F9 /* Manager */,
@@ -151,6 +156,16 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		A6FEB20C20A18E6B00EDE292 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				A6FEB20E20A18EAE00EDE292 /* UIScrollView+InfiniteScroll.h */,
+				A6FEB20F20A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m */,
+				A6FEB20D20A18EAE00EDE292 /* APA-Bridging-Header.h */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
 		D0F5087C55DF9EF57DAEB143 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +210,7 @@
 				TargetAttributes = {
 					A6D3C7BA20931B6E0083C3C6 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -309,6 +325,7 @@
 				A6D696F1209FAFEE000CFCF1 /* PetDetailViewController.swift in Sources */,
 				A6CBEFB620931FB0008482F9 /* GoogleSheetManager.swift in Sources */,
 				A6D696EC209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift in Sources */,
+				A6FEB21020A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +451,7 @@
 			baseConfigurationReference = F46134F757C1D21964D042F5 /* Pods-APA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = APA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -442,6 +460,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Nigel.APA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "APA/Class/ThirdParty/APA-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -452,6 +472,7 @@
 			baseConfigurationReference = 180AB7C73B87C2842E387A3C /* Pods-APA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = APA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -460,6 +481,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Nigel.APA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "APA/Class/ThirdParty/APA-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

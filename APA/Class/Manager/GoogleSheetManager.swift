@@ -28,10 +28,8 @@ class GoogleSheetManager: NSObject {
     
     
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
-    private let service = GTLRSheetsService()
-
-    private let MAX_PET_COUNT_PER_PAGE = 20 // 一次撈的最大筆數
-    private var fetchStartIndex = 520 // 起始從第2筆開始撈, googleSheet從1開始計算, 又第1筆是title
+    private let service = GTLRSheetsService() 
+    private var fetchStartIndex = 20 // 起始從第2筆開始撈, googleSheet從1開始計算, 又第1筆是title
     private var fetchCount = 0  // 撈取的次數
     
     override init() {
