@@ -10,6 +10,7 @@
 		2261812A74616FF9DB6131AB /* Pods_APA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF6B245B1DA0BAB8AA625E5 /* Pods_APA.framework */; };
 		A6257F1B20A43755000E8F4D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6257F1A20A43755000E8F4D /* Bolts.framework */; };
 		A6257F1D20A4375E000E8F4D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6257F1C20A4375E000E8F4D /* FBSDKShareKit.framework */; };
+		A6257F1F20A4397F000E8F4D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6257F1E20A4397F000E8F4D /* FBSDKCoreKit.framework */; };
 		A6A1E06B209F4BA100B70635 /* AllPetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1E06A209F4BA100B70635 /* AllPetListViewController.swift */; };
 		A6CBEFB120931EC1008482F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CBEFB020931EC1008482F9 /* LaunchScreen.storyboard */; };
 		A6CBEFB320931EE4008482F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CBEFB220931EE4008482F9 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		9BF6B245B1DA0BAB8AA625E5 /* Pods_APA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6257F1A20A43755000E8F4D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A6257F1C20A4375E000E8F4D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		A6257F1E20A4397F000E8F4D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A6A1E06A209F4BA100B70635 /* AllPetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetListViewController.swift; sourceTree = "<group>"; };
 		A6CBEFB020931EC1008482F9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6CBEFB220931EE4008482F9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2261812A74616FF9DB6131AB /* Pods_APA.framework in Frameworks */,
+				A6257F1F20A4397F000E8F4D /* FBSDKCoreKit.framework in Frameworks */,
 				A6257F1B20A43755000E8F4D /* Bolts.framework in Frameworks */,
 				A6257F1D20A4375E000E8F4D /* FBSDKShareKit.framework in Frameworks */,
 			);
@@ -84,6 +87,7 @@
 		A6257F1920A4372F000E8F4D /* Frameworkd */ = {
 			isa = PBXGroup;
 			children = (
+				A6257F1E20A4397F000E8F4D /* FBSDKCoreKit.framework */,
 				A6257F1C20A4375E000E8F4D /* FBSDKShareKit.framework */,
 				A6257F1A20A43755000E8F4D /* Bolts.framework */,
 			);
