@@ -19,7 +19,7 @@ extension UIAlertController{
         return alertController
     }
     
-    func cancleHandle(title:String? = "取消",style:UIAlertActionStyle = .cancel,alertAction:AlertActionType?) -> UIAlertController {
+    func cancleHandle(title:String? = ALERT_CONTROLLER_CANCEL, style:UIAlertActionStyle = .cancel,alertAction:AlertActionType?) -> UIAlertController {
         
         let alert = UIAlertAction(title: title, style: style) { (action) in
             if alertAction != nil{
@@ -41,9 +41,7 @@ extension UIAlertController{
     }
     
     func show(currentVC: UIViewController?)  {
-        
         currentVC?.present(self, animated: true, completion: nil)
-        
     }
     
 }

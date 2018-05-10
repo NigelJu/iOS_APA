@@ -25,9 +25,9 @@ class PetDetailViewController: UIViewController {
     
     // MARK:- IBAction
     @IBAction func adoptButtonDidTap(_ sender: Any) {
-        let apaUrl = APA_DETAIL_URL_PREFFIX + (petInfo.pet_id ?? "")
-        if let url = URL(string: apaUrl) {
-            UIApplication.shared.canOpenURL(url)
+        if let petUrl = petInfo.petUrl(),
+            let url = URL(string: petUrl),
+            UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import FBSDKShareKit
 
 class AllPetListViewController: UIViewController {
 
@@ -101,15 +102,32 @@ extension AllPetListViewController: AllPetListViewControllerTableViewCellDelegat
         }else {
             UserDefaultManager.shareInstance.addFavorite(fromID: petID)
         }
-        
         button.isSelected = !isFavorite
-        
-        print("favoriteButtonDidTap")
     }
     
     func shareButtonDidTap(button: UIButton, petInfo: PetInfo) {
-        print("shareButtonDidTap")
-        print("fetchTest")
+        
+        UIAlertController.alert(title: nil, message: nil, style: .actionSheet)
+            .otherHandle(title: ALERT_CONTROLLER_SHARE_WITH_LINE, alertAction: { (action) in
+                if let shareContent = petInfo.petUrl(),
+                    let lineURL = URL(string: SHARE_WITH_LINE + shareContent),
+                    UIApplication.shared.canOpenURL(lineURL) {
+                    
+                    UIApplication.shared.open(lineURL, options: [:], completionHandler: nil)
+                }
+            })
+            .otherHandle(title: ALERT_CONTROLLER_SHARE_WITH_FB, alertAction: { (action) in
+                let content = FBSDKShareLinkContent.init()
+                if let petUrl = petInfo.petUrl(),
+                    let url = URL(string: petUrl){
+                    content.contentURL = url
+                    FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+                }
+            })
+            .cancleHandle(alertAction: nil)
+            .show(currentVC: self)
+        
+        
         
     }
 }

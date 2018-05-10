@@ -58,4 +58,10 @@ class PetInfo {
     var personality: String?    // 個性
     var birthday: String?    // 出生年份
     
+    func petUrl() -> String? {
+        if let petID = self.pet_id{
+            return APA_DETAIL_URL_PREFFIX + petID
+        }
+        return nil
+    }
 }
