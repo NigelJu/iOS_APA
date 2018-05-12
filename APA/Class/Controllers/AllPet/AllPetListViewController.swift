@@ -20,12 +20,12 @@ class AllPetListViewController: UIViewController {
         super.viewDidLoad()
         googleSheetManager.delegate = self
         
-        self.googleSheetManager.startFetch()
+        self.googleSheetManager.startFetchPetList()
         
         // 滾到底觸發拉資料
         tableView.addInfiniteScroll { [weak self] (tableView) -> Void in
             if self?.googleSheetManager.isNetWorkReachable() == true {
-                self?.googleSheetManager.startFetch()
+                self?.googleSheetManager.startFetchPetList()
                 tableView.finishInfiniteScroll()
             }else {
                 UIAlertController.alert(message: NET_WORK_FAIL)
@@ -128,7 +128,7 @@ extension AllPetListViewController: AllPetListViewControllerTableViewCellDelegat
 
 // MARK:- GoogleSheetManagerDelegate
 extension AllPetListViewController: GoogleSheetManagerDelegate {
-    func googleSheetManagerFetchDidFinish(response: [PetInfo], error: NSError?) {
+    func googleSheetManagerFetchPetListDidFinish(response: [PetInfo], error: NSError?) {
         
         let startPetIndex = self.petInfos.count
         let (start, end) = (startPetIndex, response.count + startPetIndex)

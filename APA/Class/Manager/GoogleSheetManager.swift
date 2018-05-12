@@ -18,13 +18,12 @@ import GoogleAPIClientForREST
 */
 
 protocol GoogleSheetManagerDelegate {
-    func googleSheetManagerFetchDidFinish(response: [PetInfo], error: NSError?)
+    func googleSheetManagerFetchPetListDidFinish(response: [PetInfo], error: NSError?)
 }
 
 class GoogleSheetManager: NSObject {
 
     var delegate: GoogleSheetManagerDelegate?
-    
     
     private var reachability = Reachability(hostName: "docs.google.com")
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
@@ -35,7 +34,7 @@ class GoogleSheetManager: NSObject {
         service.apiKey = API_KEY
     }
     
-    func startFetch() {
+    func startFetchPetList() {
         // 結束位置 = 起始 + 撈取筆數 - 1, -1是因為從始起位置開始撈筆數, 會多拿1筆
         let endRowIndex = fetchStartIndex + MAX_PET_COUNT_PER_PAGE - 1
 
@@ -45,7 +44,7 @@ class GoogleSheetManager: NSObject {
             .query(withSpreadsheetId: SPREAD_SHEET_ID, range:range)
         service.executeQuery(query,
                              delegate: self,
-                             didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:)))
+                             didFinish: #selector(displayPetListResultWithTicket(ticket:finishedWithObject:error:)))
         fetchStartIndex = endRowIndex + 1
     }
     
@@ -59,7 +58,7 @@ class GoogleSheetManager: NSObject {
     }
 
     // Process the response and display output
-    @objc func displayResultWithTicket(ticket: GTLRServiceTicket,
+    @objc func displayPetListResultWithTicket(ticket: GTLRServiceTicket,
                                        finishedWithObject result : GTLRSheets_ValueRange,
                                        error : NSError?) {
         
@@ -88,7 +87,7 @@ class GoogleSheetManager: NSObject {
             pets.append(pet)
         }
   
-        delegate?.googleSheetManagerFetchDidFinish(response: pets, error: error)
+        delegate?.googleSheetManagerFetchPetListDidFinish(response: pets, error: error)
  
     }
     
