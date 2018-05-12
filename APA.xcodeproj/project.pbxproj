@@ -16,7 +16,6 @@
 		A6CBEFB320931EE4008482F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CBEFB220931EE4008482F9 /* Main.storyboard */; };
 		A6CBEFB620931FB0008482F9 /* GoogleSheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBEFB520931FB0008482F9 /* GoogleSheetManager.swift */; };
 		A6D3C7BF20931B6E0083C3C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3C7BE20931B6E0083C3C6 /* AppDelegate.swift */; };
-		A6D3C7C120931B6E0083C3C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3C7C020931B6E0083C3C6 /* ViewController.swift */; };
 		A6D3C7C620931B720083C3C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D3C7C520931B720083C3C6 /* Assets.xcassets */; };
 		A6D696EC209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696EB209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift */; };
 		A6D696EF209F4E7C000CFCF1 /* PetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696EE209F4E7C000CFCF1 /* PetInfo.swift */; };
@@ -42,7 +41,6 @@
 		A6CBEFB520931FB0008482F9 /* GoogleSheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSheetManager.swift; sourceTree = "<group>"; };
 		A6D3C7BB20931B6E0083C3C6 /* APA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D3C7BE20931B6E0083C3C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6D3C7C020931B6E0083C3C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A6D3C7C520931B720083C3C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6D3C7CA20931B720083C3C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6D696EB209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetListViewControllerTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				A6A1E068209F3AC200B70635 /* Controllers */,
 				A6CBEFB420931F83008482F9 /* Manager */,
 				A6D3C7BE20931B6E0083C3C6 /* AppDelegate.swift */,
-				A6D3C7C020931B6E0083C3C6 /* ViewController.swift */,
 				A6D696F420A0537A000CFCF1 /* Parameter.swift */,
 			);
 			path = Class;
@@ -372,7 +369,6 @@
 			files = (
 				A6FEB21720A1ED0C00EDE292 /* Reachability.m in Sources */,
 				A6D696F3209FB00B000CFCF1 /* PetDetailTableViewController.swift in Sources */,
-				A6D3C7C120931B6E0083C3C6 /* ViewController.swift in Sources */,
 				A6D3C7BF20931B6E0083C3C6 /* AppDelegate.swift in Sources */,
 				A6D696F520A0537A000CFCF1 /* Parameter.swift in Sources */,
 				A6A1E06B209F4BA100B70635 /* AllPetListViewController.swift in Sources */,
