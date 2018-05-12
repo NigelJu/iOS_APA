@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class PetDetailViewController: UIViewController {
 
@@ -26,9 +27,9 @@ class PetDetailViewController: UIViewController {
     // MARK:- IBAction
     @IBAction func adoptButtonDidTap(_ sender: Any) {
         if let petUrl = petInfo.petUrl(),
-            let url = URL(string: petUrl),
-            UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            let url = URL(string: petUrl) {
+            let safariVC = SFSafariViewController(url: url, entersReaderIfAvailable: false)
+            self.present(safariVC, animated: true, completion: nil)
         }
     }
     

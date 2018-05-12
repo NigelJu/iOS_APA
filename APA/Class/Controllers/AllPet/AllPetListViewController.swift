@@ -34,12 +34,6 @@ class AllPetListViewController: UIViewController {
         }
     }
 
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let petDetailVC = segue.destination as? PetDetailViewController,
             let petInfo = sender as? PetInfo {
