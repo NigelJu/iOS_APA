@@ -14,6 +14,7 @@
 		A6A1E06B209F4BA100B70635 /* AllPetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1E06A209F4BA100B70635 /* AllPetListViewController.swift */; };
 		A6B373A420A758CF0039E7E1 /* GardenListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B373A320A758CF0039E7E1 /* GardenListViewController.swift */; };
 		A6B373A620A759E10039E7E1 /* GardenDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B373A520A759E10039E7E1 /* GardenDetailListViewController.swift */; };
+		A6B373A820A977DA0039E7E1 /* Garden.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B373A720A977DA0039E7E1 /* Garden.swift */; };
 		A6CBEFB120931EC1008482F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CBEFB020931EC1008482F9 /* LaunchScreen.storyboard */; };
 		A6CBEFB320931EE4008482F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6CBEFB220931EE4008482F9 /* Main.storyboard */; };
 		A6CBEFB620931FB0008482F9 /* GoogleSheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBEFB520931FB0008482F9 /* GoogleSheetManager.swift */; };
@@ -40,6 +41,7 @@
 		A6A1E06A209F4BA100B70635 /* AllPetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetListViewController.swift; sourceTree = "<group>"; };
 		A6B373A320A758CF0039E7E1 /* GardenListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenListViewController.swift; sourceTree = "<group>"; };
 		A6B373A520A759E10039E7E1 /* GardenDetailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenDetailListViewController.swift; sourceTree = "<group>"; };
+		A6B373A720A977DA0039E7E1 /* Garden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Garden.swift; sourceTree = "<group>"; };
 		A6CBEFB020931EC1008482F9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6CBEFB220931EE4008482F9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A6CBEFB520931FB0008482F9 /* GoogleSheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSheetManager.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				A6D696EE209F4E7C000CFCF1 /* PetInfo.swift */,
+				A6B373A720A977DA0039E7E1 /* Garden.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				A6A1E06B209F4BA100B70635 /* AllPetListViewController.swift in Sources */,
 				A6D696F720A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift in Sources */,
 				A6FEB21220A1C6F100EDE292 /* UserDefaultManager.swift in Sources */,
+				A6B373A820A977DA0039E7E1 /* Garden.swift in Sources */,
 				A6FEB21A20A1F12D00EDE292 /* UIAlertController+Extension.swift in Sources */,
 				A6D696EF209F4E7C000CFCF1 /* PetInfo.swift in Sources */,
 				A6B373A420A758CF0039E7E1 /* GardenListViewController.swift in Sources */,

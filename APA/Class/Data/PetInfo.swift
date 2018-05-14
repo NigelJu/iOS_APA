@@ -8,6 +8,7 @@
 
 import UIKit
 
+// 順序對應Excel
 enum PetInfoIndex: Int {
     case keepers
     case images
@@ -40,8 +41,8 @@ enum PetGender: String {
     }
 }
 
+// 你領我養-動物資訊
 class PetInfo {
-    
     var keepers: [String]? // 不只一個人在養
     var images: [String]? // 圖最多有3張
     var pet_id: String?

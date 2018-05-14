@@ -19,6 +19,16 @@ import GoogleAPIClientForREST
 
 protocol GoogleSheetManagerDelegate {
     func googleSheetManagerFetchPetListDidFinish(response: [PetInfo], error: NSError?)
+    func googleSheetManagerFetchGolafuListDidFinish(reponse: [Garden], error: NSError?)
+}
+
+// 以此方式作optional的delegate
+extension GoogleSheetManagerDelegate {
+    func googleSheetManagerFetchPetListDidFinish(response: [PetInfo], error: NSError?){
+    }
+    
+    func googleSheetManagerFetchGolafuListDidFinish(reponse: [Garden], error: NSError?) {
+    }
 }
 
 class GoogleSheetManager: NSObject {
@@ -34,11 +44,12 @@ class GoogleSheetManager: NSObject {
         service.apiKey = API_KEY
     }
     
+    // 取得你領我養-動物列表
     func startFetchPetList() {
         // 結束位置 = 起始 + 撈取筆數 - 1, -1是因為從始起位置開始撈筆數, 會多拿1筆
         let endRowIndex = fetchStartIndex + MAX_PET_COUNT_PER_PAGE - 1
 
-        let range = SHEET_NAME + "A" + String(fetchStartIndex) + ":P" + String(endRowIndex)
+        let range = SHEET_APA + "A" + String(fetchStartIndex) + ":P" + String(endRowIndex)
         
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
             .query(withSpreadsheetId: SPREAD_SHEET_ID, range:range)
@@ -48,7 +59,18 @@ class GoogleSheetManager: NSObject {
         fetchStartIndex = endRowIndex + 1
     }
     
+    // 取得狗來富-幸福花園列表
+    func startFetchGolafu() {
+        let range = SHEET_GOLAFU + "A2:D"
+        
+        let query = GTLRSheetsQuery_SpreadsheetsValuesGet
+            .query(withSpreadsheetId: SPREAD_SHEET_ID, range:range)
+        service.executeQuery(query,
+                             delegate: self,
+                             didFinish: #selector(displayGolafuGardenListResultWithTicket(ticket:finishedWithObject:error:)))
+    }
     
+    // 檢查目前網路是否正常
     func isNetWorkReachable() -> Bool {
         if reachability?.currentReachabilityStatus().rawValue == 0 {
             return false
@@ -56,8 +78,27 @@ class GoogleSheetManager: NSObject {
             return true
         }
     }
+    
+    // 將取得的狗來富-幸福花園列表包起來, 等待其它人處理
+    @objc func displayGolafuGardenListResultWithTicket(ticket: GTLRServiceTicket,
+                                              finishedWithObject result : GTLRSheets_ValueRange,
+                                              error : NSError?) {
+        var gardens = [Garden]()
+        for row in result.values ?? [] {
+            if row.count == 1 {
+                continue
+            }
+            let garden = Garden()
+            garden.title = row[GardenInfoIndex.title.rawValue] as? String ?? ""
+            garden.album = row[GardenInfoIndex.alubmUrl.rawValue] as? String ?? ""
+            garden.visits_url = (row[GardenInfoIndex.visits_url.rawValue] as? String ?? "").components(separatedBy: ",")
+            garden.visitors = (row[GardenInfoIndex.visitors.rawValue] as? String ?? "").components(separatedBy: ",")
+            gardens.append(garden)
+        }
+        delegate?.googleSheetManagerFetchGolafuListDidFinish(reponse: gardens, error: error)
+    }
 
-    // Process the response and display output
+    // 將取得的寵物列表包起來, 等待其它人處理
     @objc func displayPetListResultWithTicket(ticket: GTLRServiceTicket,
                                        finishedWithObject result : GTLRSheets_ValueRange,
                                        error : NSError?) {

@@ -9,27 +9,55 @@
 import UIKit
 
 class GardenListViewController: UIViewController {
-
+    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var googleSheetManager = GoogleSheetManager()
+    var gardens = [Garden]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        googleSheetManager.delegate = self
+        updateGardenList()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func updateGardenList(){
+        activityIndicatorView.startAnimating()
+        if googleSheetManager.isNetWorkReachable() == true {
+            googleSheetManager.startFetchGolafu()
+        }else {
+            UIAlertController.alert(message: NET_WORK_FAIL)
+                .show(currentVC: self)
+        }
     }
-    */
+    
+    @IBAction func reloadBarButtonDidTap(_ sender: Any) {
+        updateGardenList()
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let gardenDetailVC = segue.destination as? GardenDetailListViewController,
+            let didSelectIndex = tableView.indexPathForSelectedRow?.row {
+            gardenDetailVC.gardenInfo = gardens[didSelectIndex]
+        }
+    }
+}
 
+extension GardenListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return gardens.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "garden", for: indexPath)
+        cell.textLabel?.text = gardens[indexPath.row].title
+        return cell
+    }
+}
+
+extension GardenListViewController: GoogleSheetManagerDelegate {
+    func googleSheetManagerFetchGolafuListDidFinish(reponse: [Garden], error: NSError?) {
+        activityIndicatorView.stopAnimating()
+        gardens = reponse
+        tableView.reloadData()
+    }
 }
