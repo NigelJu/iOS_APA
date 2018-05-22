@@ -8,9 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2261812A74616FF9DB6131AB /* Pods_APA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF6B245B1DA0BAB8AA625E5 /* Pods_APA.framework */; };
+		A60BBEA720B29EE20046CD10 /* AboutListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60BBEA620B29EE20046CD10 /* AboutListViewController.swift */; };
+		A60BBEA920B29FAB0046CD10 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60BBEA820B29FAB0046CD10 /* About.swift */; };
+		A60BBEAB20B2A1220046CD10 /* Array+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60BBEAA20B2A1220046CD10 /* Array+Codable.swift */; };
+		A60BBEAD20B2ACFB0046CD10 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60BBEAC20B2ACFB0046CD10 /* AboutTableViewCell.swift */; };
+		A60BBEAF20B3007F0046CD10 /* PdfUsingWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60BBEAE20B3007F0046CD10 /* PdfUsingWebViewViewController.swift */; };
+		A60BBEB120B304840046CD10 /* aboutAdopt.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A60BBEB020B304840046CD10 /* aboutAdopt.pdf */; };
 		A6257F1B20A43755000E8F4D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6257F1A20A43755000E8F4D /* Bolts.framework */; };
 		A6257F1D20A4375E000E8F4D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6257F1C20A4375E000E8F4D /* FBSDKShareKit.framework */; };
 		A6257F1F20A4397F000E8F4D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6257F1E20A4397F000E8F4D /* FBSDKCoreKit.framework */; };
+		A681345520AE9FAB003856EC /* about.json in Resources */ = {isa = PBXBuildFile; fileRef = A681345420AE9FAB003856EC /* about.json */; };
 		A6A1E06B209F4BA100B70635 /* AllPetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A1E06A209F4BA100B70635 /* AllPetListViewController.swift */; };
 		A6B373A420A758CF0039E7E1 /* GardenListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B373A320A758CF0039E7E1 /* GardenListViewController.swift */; };
 		A6B373A620A759E10039E7E1 /* GardenDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B373A520A759E10039E7E1 /* GardenDetailListViewController.swift */; };
@@ -35,9 +42,16 @@
 /* Begin PBXFileReference section */
 		180AB7C73B87C2842E387A3C /* Pods-APA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APA.release.xcconfig"; path = "Pods/Target Support Files/Pods-APA/Pods-APA.release.xcconfig"; sourceTree = "<group>"; };
 		9BF6B245B1DA0BAB8AA625E5 /* Pods_APA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60BBEA620B29EE20046CD10 /* AboutListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutListViewController.swift; sourceTree = "<group>"; };
+		A60BBEA820B29FAB0046CD10 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		A60BBEAA20B2A1220046CD10 /* Array+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Codable.swift"; sourceTree = "<group>"; };
+		A60BBEAC20B2ACFB0046CD10 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
+		A60BBEAE20B3007F0046CD10 /* PdfUsingWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfUsingWebViewViewController.swift; sourceTree = "<group>"; };
+		A60BBEB020B304840046CD10 /* aboutAdopt.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = aboutAdopt.pdf; sourceTree = "<group>"; };
 		A6257F1A20A43755000E8F4D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A6257F1C20A4375E000E8F4D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		A6257F1E20A4397F000E8F4D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		A681345420AE9FAB003856EC /* about.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = about.json; sourceTree = "<group>"; };
 		A6A1E06A209F4BA100B70635 /* AllPetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetListViewController.swift; sourceTree = "<group>"; };
 		A6B373A320A758CF0039E7E1 /* GardenListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenListViewController.swift; sourceTree = "<group>"; };
 		A6B373A520A759E10039E7E1 /* GardenDetailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenDetailListViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +102,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A60BBEA520B29ECB0046CD10 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				A60BBEA620B29EE20046CD10 /* AboutListViewController.swift */,
+				A60BBEAC20B2ACFB0046CD10 /* AboutTableViewCell.swift */,
+				A60BBEAE20B3007F0046CD10 /* PdfUsingWebViewViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		A6257F1920A4372F000E8F4D /* Frameworkd */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,9 +122,19 @@
 			path = Frameworkd;
 			sourceTree = "<group>";
 		};
+		A681345320AE9F9A003856EC /* LocalFile */ = {
+			isa = PBXGroup;
+			children = (
+				A60BBEB020B304840046CD10 /* aboutAdopt.pdf */,
+				A681345420AE9FAB003856EC /* about.json */,
+			);
+			path = LocalFile;
+			sourceTree = "<group>";
+		};
 		A6A1E068209F3AC200B70635 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A60BBEA520B29ECB0046CD10 /* About */,
 				A6B373A220A758BE0039E7E1 /* Garden */,
 				A6A1E069209F4B8F00B70635 /* AllPet */,
 			);
@@ -184,6 +218,7 @@
 				A6257F1920A4372F000E8F4D /* Frameworkd */,
 				A6CBEFAF20931EAF008482F9 /* Class */,
 				A6CBEFAE20931EA9008482F9 /* View */,
+				A681345320AE9F9A003856EC /* LocalFile */,
 				A6D3C7C520931B720083C3C6 /* Assets.xcassets */,
 				A6D3C7CA20931B720083C3C6 /* Info.plist */,
 			);
@@ -195,6 +230,7 @@
 			children = (
 				A6D696EE209F4E7C000CFCF1 /* PetInfo.swift */,
 				A6B373A720A977DA0039E7E1 /* Garden.swift */,
+				A60BBEA820B29FAB0046CD10 /* About.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -231,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				A6FEB21920A1F12D00EDE292 /* UIAlertController+Extension.swift */,
+				A60BBEAA20B2A1220046CD10 /* Array+Codable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -307,6 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6CBEFB320931EE4008482F9 /* Main.storyboard in Resources */,
+				A681345520AE9FAB003856EC /* about.json in Resources */,
+				A60BBEB120B304840046CD10 /* aboutAdopt.pdf in Resources */,
 				A6D3C7C620931B720083C3C6 /* Assets.xcassets in Resources */,
 				A6CBEFB120931EC1008482F9 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -384,17 +423,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A60BBEA720B29EE20046CD10 /* AboutListViewController.swift in Sources */,
+				A60BBEAD20B2ACFB0046CD10 /* AboutTableViewCell.swift in Sources */,
 				A6FEB21720A1ED0C00EDE292 /* Reachability.m in Sources */,
 				A6D696F3209FB00B000CFCF1 /* PetDetailTableViewController.swift in Sources */,
 				A6D3C7BF20931B6E0083C3C6 /* AppDelegate.swift in Sources */,
 				A6B373A620A759E10039E7E1 /* GardenDetailListViewController.swift in Sources */,
 				A6D696F520A0537A000CFCF1 /* Parameter.swift in Sources */,
 				A6A1E06B209F4BA100B70635 /* AllPetListViewController.swift in Sources */,
+				A60BBEA920B29FAB0046CD10 /* About.swift in Sources */,
 				A6D696F720A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift in Sources */,
 				A6FEB21220A1C6F100EDE292 /* UserDefaultManager.swift in Sources */,
 				A6B373A820A977DA0039E7E1 /* Garden.swift in Sources */,
 				A6FEB21A20A1F12D00EDE292 /* UIAlertController+Extension.swift in Sources */,
 				A6D696EF209F4E7C000CFCF1 /* PetInfo.swift in Sources */,
+				A60BBEAB20B2A1220046CD10 /* Array+Codable.swift in Sources */,
+				A60BBEAF20B3007F0046CD10 /* PdfUsingWebViewViewController.swift in Sources */,
 				A6B373A420A758CF0039E7E1 /* GardenListViewController.swift in Sources */,
 				A6D696F1209FAFEE000CFCF1 /* PetDetailViewController.swift in Sources */,
 				A6CBEFB620931FB0008482F9 /* GoogleSheetManager.swift in Sources */,
