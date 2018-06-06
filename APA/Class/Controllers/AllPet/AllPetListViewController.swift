@@ -66,15 +66,18 @@ extension AllPetListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.locationLabel.text = petInfo.location
         cell.faviriteButton.isSelected = UserDefaultManager.shareInstance.isFavorite(withDogID: (petInfo.pet_id ?? ""))
         
-        
-        let imgUrl = URL(string: petInfo.images?.first ?? "")
-        cell.petImageView.kf.setImage(with: imgUrl,
-                                      placeholder: nil,
-                                      options: [.transition(ImageTransition.fade(1))],
-                                      progressBlock: nil,
-                                      completionHandler: nil)
-      
-
+        if let imgLink = petInfo.images?.first,
+            let url = URL(string: imgLink) {
+            let placeHolder = UIImage(named: "img_loading_place_holder")
+            let resource = ImageResource(downloadURL: url, cacheKey: imgLink)
+            cell.petBlurImageView.kf.setImage(with: resource)
+            cell.petImageView.kf.setImage(with: resource,
+                                          placeholder: placeHolder,
+                                          options: [.transition(ImageTransition.fade(1))],
+                                          progressBlock: nil,
+                                          completionHandler: nil)
+            
+        }
         return cell
     }
     

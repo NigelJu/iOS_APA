@@ -19,6 +19,7 @@ class AllPetListViewControllerTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var petImageView: UIImageView!
+    @IBOutlet weak var petBlurImageView: UIImageView!
     @IBOutlet weak var faviriteButton: UIButton!
     
     var delegate: AllPetListViewControllerTableViewCellDelegate?
