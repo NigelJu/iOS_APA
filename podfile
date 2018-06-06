@@ -4,5 +4,6 @@ target 'APA' do
 pod 'GoogleAPIClientForREST/Sheets', '~> 1.2.1'
 pod 'GoogleSignIn', '~> 4.1.1'
 pod 'Kingfisher', '~> 4.0'
+pod 'ParallaxHeader', '~> 2.0.0'
 
 end

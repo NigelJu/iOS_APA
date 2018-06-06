@@ -83,12 +83,20 @@ extension PetDetailTableViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "petImages", for: indexPath) as! PetDetailTableViewCollectionViewCell
         
-        let imgUrl = URL(string: petInfo.images?[indexPath.row] ?? "")
-        cell.imageView.kf.setImage(with: imgUrl,
-                                      placeholder: nil,
-                                      options: [.transition(ImageTransition.fade(1))],
-                                      progressBlock: nil,
-                                      completionHandler: nil)
+       
+        if let imgLink = petInfo.images?[indexPath.row],
+            let url = URL(string: imgLink) {
+            let placeHolder = UIImage(named: "img_loading_place_holder")
+            let resource = ImageResource(downloadURL: url, cacheKey: imgLink)
+            cell.blurImageView.kf.setImage(with: resource)
+            cell.imageView.kf.setImage(with: resource,
+                                          placeholder: placeHolder,
+                                          options: [.transition(ImageTransition.fade(1))],
+                                          progressBlock: nil,
+                                          completionHandler: nil)
+            
+        }
+        
         return cell
     }
     

@@ -10,5 +10,6 @@ import UIKit
 
 class PetDetailTableViewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var blurImageView: UIImageView!
     
 }
