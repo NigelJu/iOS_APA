@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2261812A74616FF9DB6131AB /* Pods_APA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF6B245B1DA0BAB8AA625E5 /* Pods_APA.framework */; };
+		A60A1FE520C925A900C110DA /* PetDetailCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A1FE420C925A900C110DA /* PetDetailCollectionTableViewCell.swift */; };
+		A60A1FE720CA356F00C110DA /* PetDetailBaseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A1FE620CA356F00C110DA /* PetDetailBaseInfoTableViewCell.swift */; };
+		A60A1FE920CA370D00C110DA /* PetDetailKeepersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A1FE820CA370D00C110DA /* PetDetailKeepersTableViewCell.swift */; };
 		A60BBEA720B29EE20046CD10 /* AboutListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60BBEA620B29EE20046CD10 /* AboutListViewController.swift */; };
 		A60BBEA920B29FAB0046CD10 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60BBEA820B29FAB0046CD10 /* About.swift */; };
 		A60BBEAB20B2A1220046CD10 /* Array+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60BBEAA20B2A1220046CD10 /* Array+Codable.swift */; };
@@ -30,9 +33,8 @@
 		A6D696EC209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696EB209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift */; };
 		A6D696EF209F4E7C000CFCF1 /* PetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696EE209F4E7C000CFCF1 /* PetInfo.swift */; };
 		A6D696F1209FAFEE000CFCF1 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F0209FAFEE000CFCF1 /* PetDetailViewController.swift */; };
-		A6D696F3209FB00B000CFCF1 /* PetDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F2209FB00B000CFCF1 /* PetDetailTableViewController.swift */; };
 		A6D696F520A0537A000CFCF1 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F420A0537A000CFCF1 /* Parameter.swift */; };
-		A6D696F720A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F620A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift */; };
+		A6D696F720A06C61000CFCF1 /* PetDetailTableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D696F620A06C61000CFCF1 /* PetDetailTableCollectionViewCell.swift */; };
 		A6FEB21020A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEB20F20A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m */; };
 		A6FEB21220A1C6F100EDE292 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEB21120A1C6F100EDE292 /* UserDefaultManager.swift */; };
 		A6FEB21720A1ED0C00EDE292 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEB21520A1ED0C00EDE292 /* Reachability.m */; };
@@ -42,6 +44,9 @@
 /* Begin PBXFileReference section */
 		180AB7C73B87C2842E387A3C /* Pods-APA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APA.release.xcconfig"; path = "Pods/Target Support Files/Pods-APA/Pods-APA.release.xcconfig"; sourceTree = "<group>"; };
 		9BF6B245B1DA0BAB8AA625E5 /* Pods_APA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60A1FE420C925A900C110DA /* PetDetailCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		A60A1FE620CA356F00C110DA /* PetDetailBaseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailBaseInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A60A1FE820CA370D00C110DA /* PetDetailKeepersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PetDetailKeepersTableViewCell.swift; path = APA/Class/Controllers/AllPet/Detail/Cell/PetDetailKeepersTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		A60BBEA620B29EE20046CD10 /* AboutListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutListViewController.swift; sourceTree = "<group>"; };
 		A60BBEA820B29FAB0046CD10 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		A60BBEAA20B2A1220046CD10 /* Array+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Codable.swift"; sourceTree = "<group>"; };
@@ -66,9 +71,8 @@
 		A6D696EB209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPetListViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		A6D696EE209F4E7C000CFCF1 /* PetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfo.swift; sourceTree = "<group>"; };
 		A6D696F0209FAFEE000CFCF1 /* PetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
-		A6D696F2209FB00B000CFCF1 /* PetDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailTableViewController.swift; sourceTree = "<group>"; };
 		A6D696F420A0537A000CFCF1 /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
-		A6D696F620A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailTableViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6D696F620A06C61000CFCF1 /* PetDetailTableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailTableCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6FEB20D20A18EAE00EDE292 /* APA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APA-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6FEB20E20A18EAE00EDE292 /* UIScrollView+InfiniteScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+InfiniteScroll.h"; sourceTree = "<group>"; };
 		A6FEB20F20A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+InfiniteScroll.m"; sourceTree = "<group>"; };
@@ -100,6 +104,35 @@
 				9BF6B245B1DA0BAB8AA625E5 /* Pods_APA.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A60A1FE220C8EA0F00C110DA /* AllPetList */ = {
+			isa = PBXGroup;
+			children = (
+				A6A1E06A209F4BA100B70635 /* AllPetListViewController.swift */,
+				A6D696EB209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift */,
+			);
+			path = AllPetList;
+			sourceTree = "<group>";
+		};
+		A60A1FE320C8EA2600C110DA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A6D696F0209FAFEE000CFCF1 /* PetDetailViewController.swift */,
+				A60A1FEA20CA403400C110DA /* Cell */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		A60A1FEA20CA403400C110DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A6D696F620A06C61000CFCF1 /* PetDetailTableCollectionViewCell.swift */,
+				A60A1FE420C925A900C110DA /* PetDetailCollectionTableViewCell.swift */,
+				A60A1FE620CA356F00C110DA /* PetDetailBaseInfoTableViewCell.swift */,
+				A60A1FE820CA370D00C110DA /* PetDetailKeepersTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A60BBEA520B29ECB0046CD10 /* About */ = {
@@ -144,11 +177,8 @@
 		A6A1E069209F4B8F00B70635 /* AllPet */ = {
 			isa = PBXGroup;
 			children = (
-				A6A1E06A209F4BA100B70635 /* AllPetListViewController.swift */,
-				A6D696EB209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift */,
-				A6D696F0209FAFEE000CFCF1 /* PetDetailViewController.swift */,
-				A6D696F2209FB00B000CFCF1 /* PetDetailTableViewController.swift */,
-				A6D696F620A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift */,
+				A60A1FE220C8EA0F00C110DA /* AllPetList */,
+				A60A1FE320C8EA2600C110DA /* Detail */,
 			);
 			path = AllPet;
 			sourceTree = "<group>";
@@ -428,13 +458,12 @@
 				A60BBEA720B29EE20046CD10 /* AboutListViewController.swift in Sources */,
 				A60BBEAD20B2ACFB0046CD10 /* AboutTableViewCell.swift in Sources */,
 				A6FEB21720A1ED0C00EDE292 /* Reachability.m in Sources */,
-				A6D696F3209FB00B000CFCF1 /* PetDetailTableViewController.swift in Sources */,
 				A6D3C7BF20931B6E0083C3C6 /* AppDelegate.swift in Sources */,
 				A6B373A620A759E10039E7E1 /* GardenDetailListViewController.swift in Sources */,
 				A6D696F520A0537A000CFCF1 /* Parameter.swift in Sources */,
 				A6A1E06B209F4BA100B70635 /* AllPetListViewController.swift in Sources */,
 				A60BBEA920B29FAB0046CD10 /* About.swift in Sources */,
-				A6D696F720A06C61000CFCF1 /* PetDetailTableViewCollectionViewCell.swift in Sources */,
+				A6D696F720A06C61000CFCF1 /* PetDetailTableCollectionViewCell.swift in Sources */,
 				A6FEB21220A1C6F100EDE292 /* UserDefaultManager.swift in Sources */,
 				A6B373A820A977DA0039E7E1 /* Garden.swift in Sources */,
 				A6FEB21A20A1F12D00EDE292 /* UIAlertController+Extension.swift in Sources */,
@@ -442,8 +471,11 @@
 				A60BBEAB20B2A1220046CD10 /* Array+Codable.swift in Sources */,
 				A60BBEAF20B3007F0046CD10 /* PdfUsingWebViewViewController.swift in Sources */,
 				A6B373A420A758CF0039E7E1 /* GardenListViewController.swift in Sources */,
+				A60A1FE720CA356F00C110DA /* PetDetailBaseInfoTableViewCell.swift in Sources */,
 				A6D696F1209FAFEE000CFCF1 /* PetDetailViewController.swift in Sources */,
 				A6CBEFB620931FB0008482F9 /* GoogleSheetManager.swift in Sources */,
+				A60A1FE920CA370D00C110DA /* PetDetailKeepersTableViewCell.swift in Sources */,
+				A60A1FE520C925A900C110DA /* PetDetailCollectionTableViewCell.swift in Sources */,
 				A6D696EC209F4D51000CFCF1 /* AllPetListViewControllerTableViewCell.swift in Sources */,
 				A6FEB21020A18EAF00EDE292 /* UIScrollView+InfiniteScroll.m in Sources */,
 			);
